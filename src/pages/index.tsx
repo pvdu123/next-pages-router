@@ -1,6 +1,7 @@
 import { authAtom } from "@/atoms/authAtom";
 import { useAtom } from "jotai";
 import { useRouter } from "next/router";
+import styles from "@/styles/home.module.css";
 
 export default function HomePage() {
     const [auth, setAuth] = useAtom(authAtom);
@@ -13,8 +14,9 @@ export default function HomePage() {
     }
 
     return (
-        <div>
-            <h1>Welcome, {auth?.username}</h1>
+        <div className={styles.wrapper}>
+            <h1>Welcome to your Profile</h1>
+            <p>Your username: {auth?.username}</p>
             <button onClick={handleLogout}>Logout</button>
         </div>
     );
